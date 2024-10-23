@@ -4,14 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import logoImg from "../../../assets/logo.png";
-import NavbarMobileMenu from "./navbar-mobile-menu";
-import NavLinks from "./nav-links";
+import NavbarMobileMenu from "./NavbarMobileMenu";
+import NavLinks from "./NavLinks";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow dark:bg-gray-800 fixed top-0 w-full md:h-24 z-20">
+    <nav className="bg-transparent w-full md:h-24 z-20 md:px-32 md:py-20">
       <div className="container px-6 py-3 h-full mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between m-1">
           <div className="flex flex-row items-center max-w-full">
