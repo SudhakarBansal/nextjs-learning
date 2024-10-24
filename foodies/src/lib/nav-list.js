@@ -5,9 +5,14 @@ export default function getNavList() {
 
   return [
     {
+      title: "Home",
+      href: "/",
+      active: path === "/",
+    },
+    {
       title: "Browse Meals",
       href: "/meals",
-      active: path.startsWith("/meals"), 
+      active: path.startsWith("/meals"),
     },
     {
       title: "Foodies Community",
