@@ -1,20 +1,18 @@
+import { usePathname } from "next/navigation";
+
 export default function getNavList() {
+  const path = usePathname();
+
   return [
     {
-      title: "abc",
-      href: "/",
+      title: "Browse Meals",
+      href: "/meals",
+      active: path.startsWith("/meals"), 
     },
     {
-      title: "adv",
-      href: "/",
-    },
-    {
-      title: "sfb",
-      href: "/",
-    },
-    {
-      title: "srg",
-      href: "/",
+      title: "Foodies Community",
+      href: "/community",
+      active: path.startsWith("/community"),
     },
   ];
 }
