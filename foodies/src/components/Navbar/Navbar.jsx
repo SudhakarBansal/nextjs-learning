@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import logoImg from "../../../assets/logo.png";
-import NavbarMobileMenu from "./NavbarMobileMenu";
+import MobileMenu from "./MobileMenu";
 import NavLinks from "./NavLinks";
 
 export default function Navbar() {
@@ -27,7 +27,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <NavbarMobileMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
+          <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
         </div>
 
         {/* Mobile Menu open/close */}

@@ -1,6 +1,6 @@
 import Section from "./SectionHomePage";
 
-export default function MainHomePage() {
+export default function TextContent() {
   return (
     <main className="md:px-32 md:py-16 px-6 py-8">
       <Section

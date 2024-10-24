@@ -1,4 +1,4 @@
-export default function NavbarMobileMenu({isOpen,setIsOpen}) {
+export default function MobileMenu({isOpen,setIsOpen}) {
 
     return(
         <div className="flex md:hidden">
