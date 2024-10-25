@@ -25,10 +25,13 @@ export default function MealItem({ title, slug, image, summary, creator }) {
       </header>
       <div className="p-4">
         <p className="text-gray-600 dark:text-gray-300 mb-4">{summary}</p>
-        <Link href={`/meals/${slug}`}>
-          <a className="text-orange-600 dark:text-orange-400 font-bold hover:underline">
-            View Details
-          </a>
+      </div>
+      <div className="p-4">
+        <Link
+          href={`/meals/${slug}`}
+          className="text-orange-600 dark:text-orange-400 font-bold hover:underline absolute bottom-0 py-4"
+        >
+          View Details
         </Link>
       </div>
     </article>

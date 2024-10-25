@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const MealsHeader = () => {
   return (
-    <header className="bg-gray-100 dark:bg-black text-left">
+    <header className="bg-white dark:bg-black text-left mb-12">
       <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-gray-800 dark:text-gray-100">
         Delicious meals, created{" "}
         <span className="bg-gradient-to-r from-orange-600 via-orange-500 to-orange-400 bg-clip-text text-transparent">
