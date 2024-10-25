@@ -11,7 +11,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-transparent w-full lg:h-24 z-20 lg:px-32 lg:py-20">
+    <nav className="bg-transparent w-full lg:h-24 z-20 lg:px-32 lg:py-20 mb-10">
       <div className="container px-6 py-3 h-full mx-auto lg:flex lg:justify-between lg:items-center">
         <div className="flex items-center justify-between m-1">
           <div className="flex flex-row items-center max-w-full">
@@ -21,7 +21,7 @@ export default function Navbar() {
             >
               <Image src={logoImg} width={80} alt="logo" priority />
             </Link>
-            <div className="px-8 font-bold text-3xl tracking-widest">
+            <div className="px-8 font-bold xl:text-3xl sm:text-2xl xl:tracking-widest md:tracking-tight">
               NEXTLEVEL FOOD
             </div>
           </div>
