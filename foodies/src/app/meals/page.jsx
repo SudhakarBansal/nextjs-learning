@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import MealsHeader from "@/components/Meals/Header";
-import Loader from "../../../components/Common/loader";
+import Loader from "../../components/Common/loader";
 import FetchMeals from "@/components/Meals/FetchMeals";
 
 const Mealspage = async () => {
