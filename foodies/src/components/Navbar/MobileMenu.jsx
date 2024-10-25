@@ -1,7 +1,7 @@
 export default function MobileMenu({isOpen,setIsOpen}) {
 
     return(
-        <div className="flex md:hidden">
+        <div className="flex lg:hidden">
             <button
               type="button"
               className="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400"
