@@ -1,15 +1,15 @@
+import { Suspense } from "react";
 import MealsHeader from "@/components/Meals/Header";
-import MealsGrid from "@/components/Meals/MealsGrid";
-import { getMeals } from "@/lib/meals";
+import Loader from "../../../components/Common/loader";
+import FetchMeals from "@/components/Meals/FetchMeals";
 
-const Mealspage = async() => {
-
-    const meals = await getMeals();
-
+const Mealspage = async () => {
   return (
     <div className="px-6 md:px-32 md:py-16">
-      <MealsHeader/>
-      <MealsGrid meals={meals}/>
+      <MealsHeader />
+      <Suspense fallback={<Loader />}>
+        <FetchMeals/>
+      </Suspense>
     </div>
   );
 };
