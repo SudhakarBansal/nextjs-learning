@@ -1,6 +1,6 @@
 export default function MealRecipe({ recipie }) {
   return (
-    <main className="flex flex-col items-center mt-10 sm:mt-20 xl:mt-32 md:p-9 p-6">
+    <main className="flex flex-col items-center mt-10 sm:mt-20 md:p-9 p-6">
       <h2 className="text-3xl md:text-4xl text-black dark:text-white font-bold mb-6">
         Recipe
       </h2>
