@@ -16,7 +16,7 @@ const HeaderText = () => {
           Join the community
         </Link>
         <Link
-          className="text-white bg-gradient-to-r from-orange-600 via-orange-400 to-orange-400 px-5 py-3 text-xl rounded-lg font-bold sm:mx-6 sm:mt-0 mt-4"
+          className="text-white bg-gradient-to-r from-orange-600 via-orange-500 to-orange-400 px-5 py-3 text-xl rounded-lg font-bold sm:mx-6 sm:mt-0 mt-4"
           href="/meals"
         >
           Explore Meals
