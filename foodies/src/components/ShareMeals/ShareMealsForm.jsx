@@ -1,4 +1,5 @@
 import FormField from "./FormField";
+import ImagePicker from "./ImagePicker";
 export default function ShareMealForm() {
   return (
     <form className="space-y-6">
@@ -23,18 +24,7 @@ export default function ShareMealForm() {
           className="mt-1 p-2 w-full border dark:border-gray-600 border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-700 outline-none"
         ></textarea>
       </div>
-      <div className="mb-4">
-        <label className="block text-lg font-medium dark:text-gray-200 text-gray-700">
-          Image Picker
-        </label>
-        <input
-          type="file"
-          id="image"
-          name="image"
-          accept="image/*"
-          className="mt-1 p-2 w-full border dark:border-gray-600 border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-700 outline-none"
-        />
-      </div>
+     <ImagePicker name={'image'}/>
       <button
         type="submit"
         className="w-full text-xl font-bold py-3 px-6 transition duration-300 ease-in-out bg-gradient-to-r from-orange-600 via-orange-500 to-orange-400 rounded-md hover:from-orange-500 hover:via-orange-600 hover:to-orange-500 hover:scale-95 hover:shadow-lg transform focus:outline-none focus:ring-4 focus:ring-orange-500 focus:ring-opacity-60"
