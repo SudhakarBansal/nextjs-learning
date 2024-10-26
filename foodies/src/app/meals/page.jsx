@@ -5,7 +5,7 @@ import FetchMeals from "@/components/Meals/FetchMeals";
 
 const Mealspage = async () => {
   return (
-    <div className="px-6 md:px-32 md:py-16">
+    <div className="">
       <MealsHeader />
       <Suspense fallback={<Loader />}>
         <FetchMeals/>

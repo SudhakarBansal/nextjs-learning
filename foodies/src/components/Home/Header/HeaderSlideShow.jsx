@@ -17,7 +17,7 @@ const HeaderSlideShow = () => {
   }, []);
 
   return (
-    <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0 h-[22rem] relative overflow-hidden">
+    <div className="w-full md:w-1/2 flex justify-center mb-8 md:mb-0 h-[27rem] relative overflow-hidden">
       {images.map((image, index) => (
         <Image
           key={index}

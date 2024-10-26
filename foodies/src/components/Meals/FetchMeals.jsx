@@ -1,4 +1,4 @@
-import { getMeals } from "@/lib/meals";
+import { getMeals } from "@/actions/meals";
 import MealsGrid from "./MealsGrid";
 
 export default async function FetchMeals() {
