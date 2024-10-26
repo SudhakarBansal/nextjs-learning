@@ -2,7 +2,7 @@ import Section from "./SectionHomePage";
 
 export default function TextContent() {
   return (
-    <main>
+    <main className="sm:mt-20 xl:mt-40">
       <Section
         title="How it works"
         content={[
