@@ -1,8 +1,21 @@
 import FormField from "./FormField";
 import ImagePicker from "./ImagePicker";
 export default function ShareMealForm() {
+  async function handleShareMeal(formData) {
+    "use server";
+
+    const meal = {
+      title: formData.get("title"),
+      summary: formData.get("summary"),
+      instructions: formData.get("instructions"),
+      image: formData.get("image"),
+      creator: formData.get("name"),
+      creator_email: formData.get("email"),
+    };
+    console.log(meal);
+  }
   return (
-    <form className="space-y-6">
+    <form className="space-y-6" action={handleShareMeal}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <FormField id="name" label="Your name" required />
         <FormField id="email" label="Your email" type="email" required />
@@ -24,7 +37,7 @@ export default function ShareMealForm() {
           className="mt-1 p-2 w-full border dark:border-gray-600 border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500 dark:bg-slate-700 outline-none"
         ></textarea>
       </div>
-     <ImagePicker name={'image'}/>
+      <ImagePicker name={"image"} />
       <button
         type="submit"
         className="w-full text-xl font-bold py-3 px-6 transition duration-300 ease-in-out bg-gradient-to-r from-orange-600 via-orange-500 to-orange-400 rounded-md hover:from-orange-500 hover:via-orange-600 hover:to-orange-500 hover:scale-95 hover:shadow-lg transform focus:outline-none focus:ring-4 focus:ring-orange-500 focus:ring-opacity-60"

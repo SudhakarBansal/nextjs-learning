@@ -11,7 +11,7 @@ export default function ImagePicker({ name }) {
     const file = event.target.files[0];
 
     if (!file) {
-      setPickedImage(null); // Reset pickedImage state if no file is selected
+      setPickedImage(null); 
       return;
     }
 
@@ -63,6 +63,7 @@ export default function ImagePicker({ name }) {
           className="hidden"
           ref={pickImage}
           onChange={handleImageChange}
+          required
         />
       </div>
     </div>
