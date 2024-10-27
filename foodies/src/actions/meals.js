@@ -2,6 +2,8 @@
 import sql from "better-sqlite3";
 import slugify from "slugify";
 import xss from "xss";
+import fs from "node:fs";
+import { redirect } from "next/navigation";
 
 const db = sql("meals.db");
 
@@ -24,10 +26,46 @@ export async function handleShareMeal(formData) {
     creator: formData.get("name"),
     creator_email: formData.get("email"),
   };
-  console.log(meal);
+  await saveMeal(meal);
+  redirect("/meals");
 }
 
-export function saveMeal(meal) {
+export async function saveMeal(meal) {
   meal.slug = slugify(meal.title, { lower: true });
   meal.instructions = xss(meal.instructions);
+  const extension = meal.image.name.split(".").pop();
+  const fileName = `${meal.slug}.${extension}`;
+
+  // Ensure the images directory exists
+  const directoryPath = "./public/images";
+  if (!fs.existsSync(directoryPath)) {
+    fs.mkdirSync(directoryPath, { recursive: true });
+  }
+
+  try {
+    const bufferedImage = await meal.image.arrayBuffer();
+    const imageBuffer = Buffer.from(new Uint8Array(bufferedImage));
+
+    // Write the file synchronously to avoid issues with async stream handling
+    fs.writeFileSync(`${directoryPath}/${fileName}`, imageBuffer);
+
+    meal.image = `/images/${fileName}`; // Relative path for Next.js public access
+
+    // Insert meal data into the database
+    db.prepare(
+      `
+      INSERT INTO meals (title, summary, instructions, creator, creator_email, image, slug) VALUES (
+        @title,
+        @summary,
+        @instructions,
+        @creator,
+        @creator_email,
+        @image,
+        @slug
+      )
+    `
+    ).run(meal);
+  } catch (error) {
+    throw new Error("Saving Image Failed");
+  }
 }
