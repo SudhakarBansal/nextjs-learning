@@ -1,19 +1,7 @@
+import { handleShareMeal } from "@/actions/meals";
 import FormField from "./FormField";
 import ImagePicker from "./ImagePicker";
 export default function ShareMealForm() {
-  async function handleShareMeal(formData) {
-    "use server";
-
-    const meal = {
-      title: formData.get("title"),
-      summary: formData.get("summary"),
-      instructions: formData.get("instructions"),
-      image: formData.get("image"),
-      creator: formData.get("name"),
-      creator_email: formData.get("email"),
-    };
-    console.log(meal);
-  }
   return (
     <form className="space-y-6" action={handleShareMeal}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
