@@ -49,9 +49,8 @@ export async function saveMeal(meal) {
     // Write the file synchronously to avoid issues with async stream handling
     fs.writeFileSync(`${directoryPath}/${fileName}`, imageBuffer);
 
-    meal.image = `/images/${fileName}`; // Relative path for Next.js public access
+    meal.image = `/images/${fileName}`;
 
-    // Insert meal data into the database
     db.prepare(
       `
       INSERT INTO meals (title, summary, instructions, creator, creator_email, image, slug) VALUES (
