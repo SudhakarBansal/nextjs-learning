@@ -1,12 +1,12 @@
-import Link from "next/link";
+import NewsList from "@/components/News/NewsList";
 
 export default function NewsPage() {
   return (
-    <>
-      <h1>New page</h1>
-      <Link href="/news/fist-item">fist links</Link>
-      <Link href="/news/second-item">second links</Link>
-      <Link href="/news/third-item">third links</Link>
-    </>
+    <div className="bg-gray-50 dark:bg-black min-h-screen p-8">
+      <h1 className="text-4xl font-bold text-center text-gray-800 dark:text-gray-200 mb-10">
+        News
+      </h1>
+      <NewsList />
+    </div>
   );
 }
