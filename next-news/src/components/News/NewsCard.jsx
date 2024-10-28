@@ -19,12 +19,6 @@ export default function NewsCard({ news }) {
           <h2 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-gray-100">
             {news.title}
           </h2>
-          <p className="mb-4 text-gray-600 dark:text-gray-300 line-clamp-3">
-            {news.content}
-          </p>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            {news.date}
-          </p>
         </div>
       </Link>
     </li>
