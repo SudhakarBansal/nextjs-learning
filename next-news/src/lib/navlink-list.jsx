@@ -6,7 +6,7 @@ export default function navLinksList() {
     {
       title: "News",
       path: "/news",
-      active: path.startsWith("/meals"),
+      active: path.startsWith("/news"),
     },
     {
       title: "Archive",
