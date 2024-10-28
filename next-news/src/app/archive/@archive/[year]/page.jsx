@@ -7,7 +7,6 @@ export default async function FilteredNewsPage({ params }) {
 
   return (
     <>
-      <h1>hello - {year}</h1>
       <NewsList newsList={newsForYear} />
     </>
   );

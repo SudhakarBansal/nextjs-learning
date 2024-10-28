@@ -14,7 +14,7 @@ export default function Navbar() {
         <div className="flex w-full md:w-auto justify-between items-center mb-6 md:mb-0">
           <Link
             href="/"
-            className="text-white dark:text-gray-100 text-3xl md:text-4xl font-semibold"
+            className="text-white dark:text-gray-100 text-3xl md:text-2xl font-semibold"
           >
             NextNews
           </Link>

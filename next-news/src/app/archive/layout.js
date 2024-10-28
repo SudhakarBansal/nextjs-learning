@@ -1,7 +1,7 @@
 export default function ArchiveLayout({ archive, latest }) {
   return (
     <div className="min-h-screen p-8 text-gray-800 dark:text-gray-100">
-      <h1 className="text-4xl font-bold text-center mb-8">News Archive</h1>
+      <h1 className="text-4xl font-bold text-start mb-8">News Archive</h1>
 
       {/* Archive Section */}
       <section className="mb-8">{archive}</section>

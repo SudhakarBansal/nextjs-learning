@@ -16,7 +16,7 @@ const NavLinks = ({ menuOpen }) => {
           href={path}
           className={`${
             active ? "bg-slate-300 text-black" : "text-white dark:text-gray-100"
-          } text-xl hover:text-blue-500 px-5 py-4 md:py-3 rounded-md`}
+          } text-lg hover:text-blue-500 px-5 py-4 md:py-3 rounded-md`}
         >
           {title}
         </Link>
