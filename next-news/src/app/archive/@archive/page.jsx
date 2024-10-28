@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAvailableNewsYears } from "../../../../helper/news";
+import { getAvailableNewsYears } from "../../../helper/news";
 
 export default function ArchivePage() {
   const years = getAvailableNewsYears();
