@@ -2,70 +2,68 @@ import Link from "next/link";
 import NewsList from "@/components/News/NewsList";
 import {
   getAvailableNewsMonths,
+  getAvailableNewsYears,
   getNewsForYear,
   getNewsForYearAndMonth,
 } from "@/helper/news";
 
 export default async function FilteredNewsPage({ params }) {
   const { filter } = await params;
-  let selectedYear = filter?.[0];
-  let selectedMonth = filter?.[1];
-  let news;
-  let links;
-  let newsContent = <p>No news found for the selected period</p>;
+  const selectedYear = filter?.[0];
+  const selectedMonth = filter?.[1];
 
-  if (selectedYear && !selectedMonth) {
-    news = getNewsForYear(selectedYear);
-    links = getAvailableNewsMonths(selectedYear);
-    console.log(links);
+  let news = [];
+  let links = [];
+  let newsContent;
+
+  // Validate filters and set up content
+  if (selectedYear && !getAvailableNewsYears().includes(+selectedYear)) {
+    throw new Error("Invalid Year");
   }
-  if (!selectedYear && !selectedMonth) {
-    newsContent = <p>Please select a year</p>;
+  if (
+    selectedMonth &&
+    !getAvailableNewsMonths(selectedYear)?.includes(+selectedMonth)
+  ) {
+    throw new Error("Invalid Month");
   }
 
   if (selectedYear && selectedMonth) {
     news = getNewsForYearAndMonth(selectedYear, selectedMonth);
+  } else if (selectedYear) {
+    news = getNewsForYear(selectedYear);
+    links = getAvailableNewsMonths(selectedYear) || [];
   }
 
-  if (news && news.length > 0) {
-    newsContent = <NewsList newsList={news} />;
-  }
+  newsContent =
+    news.length > 0 ? (
+      <NewsList newsList={news} />
+    ) : (
+      <p>No news found for the selected period</p>
+    );
 
   return (
     <>
-      {selectedYear && (
+      {/* Month Navigation */}
+      {selectedYear && links.length > 0 && (
         <div className="bg-inherit py-8">
           <nav className="container">
             <ul className="flex space-x-6">
-              {Array.isArray(links) &&
-                links.length > 0 &&
-                links.map((month) => (
-                  <li key={month}>
-                    <Link
-                      href={`/archive/${selectedYear}/${month}`}
-                      className="text-xl text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    >
-                      {month}
-                    </Link>
-                  </li>
-                ))}
+              {links.map((month) => (
+                <li key={month}>
+                  <Link
+                    href={`/archive/${selectedYear}/${month}`}
+                    className="text-xl text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    {month}
+                  </Link>
+                </li>
+              ))}
             </ul>
-            {/* <ul className="flex space-x-6">
-              {links.length > 0 &&
-                links.map((months) => (
-                  <li key={months}>
-                    <Link
-                      href={`/archive/${selectedYear}/${months}`}
-                      className="text-xl text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    >
-                      {months}
-                    </Link>
-                  </li>
-                ))}
-            </ul> */}
           </nav>
         </div>
       )}
+
+      {/* News Content */}
       {newsContent}
     </>
   );
