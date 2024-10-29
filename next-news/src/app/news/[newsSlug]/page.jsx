@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { DUMMY_NEWS } from "../../../../dummy-news";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function NewsDetailsPage({ params }) {
   const { newsSlug } = await params;
@@ -13,13 +14,15 @@ export default async function NewsDetailsPage({ params }) {
     <article className="min-h-screen p-8 text-gray-800 dark:text-gray-200">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center">
         <div className="relative md:w-1/2 mb-10 md:mb-0">
-          <Image
-            src={`/images/news/${newsItem.image}`}
-            alt={newsItem.title}
-            className="object-fill rounded-lg"
-            width={500}
-            height={100}
-          />
+          <Link href={`/news/${newsItem.slug}/image`}>
+            <Image
+              src={`/images/news/${newsItem.image}`}
+              alt={newsItem.title}
+              className="object-fill rounded-lg"
+              width={500}
+              height={100}
+            />
+          </Link>
         </div>
 
         <div className="md:w-1/2 md:pl-8">
