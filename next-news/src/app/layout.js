@@ -1,6 +1,5 @@
-import localFont from "next/font/local";
 import "../globals.css";
-import Navbar from "@/components/Navbar/Navbar";
+import localFont from "next/font/local";
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -14,8 +13,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Next News",
-  description: "A News App using Next.js",
+  title: "Next.js Page Routing & Rendering",
+  description: "Learn how to route to different pages.",
 };
 
 export default function RootLayout({ children }) {
@@ -24,7 +23,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased px-7 md:px-20 lg:px-36`}
       >
-        <Navbar />
         {children}
       </body>
     </html>

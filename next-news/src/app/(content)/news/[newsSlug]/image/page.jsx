@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { DUMMY_NEWS } from "../../../../../dummy-news";
+import { DUMMY_NEWS } from "../../../../../../dummy-news";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
