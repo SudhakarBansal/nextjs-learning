@@ -1,5 +1,8 @@
 "use server";
 
+import { hashUserPassword } from "@/lib/hash";
+import { createUser } from "@/lib/users";
+
 export async function signUp(prevState, formData) {
   const email = formData.get("email");
   const password = formData.get("password");
@@ -19,4 +22,7 @@ export async function signUp(prevState, formData) {
       errors,
     };
   }
+
+  const hashedPassword = hashUserPassword(password);
+  createUser(email, hashedPassword);
 }
